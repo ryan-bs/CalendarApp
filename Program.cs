@@ -1,4 +1,5 @@
 using CalendarApp.Data;
+using CalendarApp.Interfaces;
 using CalendarApp.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,6 +13,7 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<UsuarioModel>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.AddScoped<IDAL, DAL>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
